@@ -1,0 +1,41 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:mvc="http://www.springframework.org/schema/mvc"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+   <context:component-scan base-package="com.jin.auth.android" />
+
+	<bean id="urlmapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+		<value>
+		/login.do=loginControll
+		/auth.do=authControll
+		/register.do=registerControll
+		/sendpush.do=sendPushControll
+		/protobuf.do=protobufControll
+		/txtmessage.do=sendmessageControll
+		</value>
+		</property>
+	</bean>
+
+
+   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name="prefix" value="/WEB-INF/jsp/" />
+      <property name="suffix" value=".jsp" />
+   </bean>
+   
+    
+    
+   
+   <bean id="loginControll" class="com.jin.auth.android.LoginControll"></bean>
+   <bean id="authControll" class="com.jin.auth.android.Auth"></bean>
+   <bean id="registerControll" class="com.jin.auth.android.RegisterUserControll"></bean>
+   <bean id="sendPushControll" class="com.jin.auth.android.SendPush"></bean>
+   <bean id="protobufControll" class="com.jin.auth.android.ProtobufferControl"></bean>
+   <bean id="sendmessageControll" class="com.jin.auth.android.SendSingleMessage"></bean>
+</beans>
