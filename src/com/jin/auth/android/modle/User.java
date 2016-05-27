@@ -7,6 +7,7 @@ public class User {
 	private String  username;
 	private String content;
 	private String id;
+	private String fkdh;
 	public String getUsername() {
 		return username;
 	}
@@ -24,6 +25,12 @@ public class User {
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getFkdh() {
+		return fkdh;
+	}
+	public void setFkdh(String fkdh) {
+		this.fkdh = fkdh;
 	}
 	
 	

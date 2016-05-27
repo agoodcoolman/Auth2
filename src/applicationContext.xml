@@ -26,6 +26,12 @@
 			</list>
 		</property>
 	</bean>
+	
+	
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/> 
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+    <property name="order" value="0"/>
+	</bean>          
 
 	<!-- ③：对模型视图名称的解析，即在模型视图名称添加前后缀 -->
 	<bean

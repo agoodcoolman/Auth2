@@ -40,6 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   		var usernames = $("#username").val();
   		var contents = $("#content").val();
   		var ids = $("#ids").val();
+  		var fkdh = $("#fkdh").val();
   		var data = {username:usernames, content:contents};
   		
   		// $.post("txtmessage.do?", {username:"police002", content:"gege"}, null, "json");
@@ -50,7 +51,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   data:JSON.stringify({
                       username:        usernames,
                       content:         contents,
-                      id: 			   ids
+                      id: 			   ids,
+                      fkdh:			   fkdh
                       })
                 });
   	}
@@ -62,9 +64,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	name:<input type="text" name="username" id="username" /><br/>
 		content:<input type="text" name="content" id="content"/><br/>
 		id:<input type="text" name="ids" id="ids">
+		fkdh:<input type="text" name="fkdh" id="fkdh">
 		<input type="submit" value="sendformmessage()" onclick="sendformmessage()"/>
     </form>
-    
+    </br></br></br></br>
     <button type="button" onclick="sendmessage()">message</button>
     
   </body>

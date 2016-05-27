@@ -36,6 +36,7 @@ public class SendSingleMessage {
 		map.put("caseName", "普通案件");
 		map.put("callNo", "15629976793");
 		map.put("reportName", "张欢");
+		map.put("fkdbh", user.getFkdh());
 		txtMessage.setExtra(GsonUtil.toJson(map, Map.class));
 		toIds.add(user.getUsername());
 		SdkHttpResult result;
