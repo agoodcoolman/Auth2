@@ -27,7 +27,7 @@ public class SendSingleMessage {
 	@RequestMapping(method = {RequestMethod.POST,RequestMethod.GET})
 	public void sendSingleTxtmessage (@RequestBody User user) {
 		List<String> toIds = new ArrayList<String>();
-		TxtMessage txtMessage = new TxtMessage("»Ø¼ÒË¯¾õÀ²");
+		TxtMessage txtMessage = new TxtMessage(user.getContent());
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("id", user.getId());
 		map.put("status", "0");
