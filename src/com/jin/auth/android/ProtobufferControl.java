@@ -51,7 +51,7 @@ public class ProtobufferControl {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		return result.newBuilder().setResultcode(10).build().toByteArray();
+		byte[] byteArray = result.newBuilder().setResultcode(10).build().toByteArray();
+		return byteArray;
 	}
 }

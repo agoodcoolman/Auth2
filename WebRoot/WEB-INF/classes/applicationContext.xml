@@ -17,12 +17,14 @@
 	<context:component-scan base-package="com.jin.auth.android" />
 
 	<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
+	<bean id="mappingByteArrayconverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
 	<!-- ②：启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<list>
-				<ref bean="mappingJacksonHttpMessageConverter" />
+				<!-- <ref bean="mappingJacksonHttpMessageConverter"/> -->
+				<ref bean="mappingByteArrayconverter" />
 			</list>
 		</property>
 	</bean>
