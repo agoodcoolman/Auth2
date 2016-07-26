@@ -8,6 +8,8 @@ import java.io.InputStream;
 import jin.com.protobuflib.model.AddressBookProtos.AddressBook;
 import jin.com.protobuflib.model.AddressBookProtos.Person;
 import jin.com.protobuflib.model.ResultInfo.Result;
+
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.crypt.DES;
+import com.crypt.DESUtils;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.ByteString.Output;
 import com.google.protobuf.InvalidProtocolBufferException;
@@ -27,7 +31,10 @@ public class ProtobufferControl {
 		Person person;
 		
 		try {
-			person = Person.parseFrom(file.getBytes());
+			byte[] bytes = file.getBytes();
+			
+			person = Person.parseFrom(DESUtils.DESdecrypt(bytes));
+			System.out.println(person.toString());
 //			parseFrom = AddressBook.parseFrom();
 //			person = Person.parseFrom(file.getBytes());
 //			File file2 = new File("C:/Users/Administrator/Desktop/newFile/face.jpg");
@@ -54,8 +61,9 @@ public class ProtobufferControl {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		byte[] byteArray = Result.newBuilder().setResultcode(10).build().toByteArray();
 		
+		byte[] byteArray = Result.newBuilder().setResultcode(10).setAlertMessage("nizhgegediaomao").setErrorMessage("¥ÌŒÛ–≈œ¢").build().toByteArray();
+		byteArray = DESUtils.DESencrypt(byteArray);
 		return byteArray;
 	}
 }
