@@ -14,7 +14,7 @@ public class DESUtils {
     public static byte[] DESencrypt(byte[] encrypt) {
 
         try {
-            return DES.decrypt(encrypt, DES.PASSWORD);
+            return DES.encrypt(encrypt, DES.PASSWORD);
         } catch (Exception e) {
             e.printStackTrace();
         }
