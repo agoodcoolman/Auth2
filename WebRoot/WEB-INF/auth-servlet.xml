@@ -19,6 +19,7 @@
 		/sendpush.do=sendPushControll
 		/protobuf.do=protobufControll
 		/txtmessage.do=sendmessageControll
+		/logincookie.do=cookieloginControll
 		</value>
 		</property>
 	</bean>
@@ -38,4 +39,5 @@
    <bean id="sendPushControll" class="com.jin.auth.android.SendPush"></bean>
    <bean id="protobufControll" class="com.jin.auth.android.ProtobufferControl"></bean>
    <bean id="sendmessageControll" class="com.jin.auth.android.SendSingleMessage"></bean>
+   <bean id="cookieloginControll" class="com.jin.auth.android.LoginCookieControl"></bean>
 </beans>

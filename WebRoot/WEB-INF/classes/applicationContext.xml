@@ -16,8 +16,10 @@
 	<!-- ①：对web包中的所有类进行扫描，以完成Bean创建和自动依赖注入的功能 -->
 	<context:component-scan base-package="com.jin.auth.android" />
 
-	<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
-	<bean id="mappingByteArrayconverter" class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+	<bean id="mappingJacksonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+	<bean id="mappingByteArrayconverter"
+		class="org.springframework.http.converter.ByteArrayHttpMessageConverter" />
 	<!-- ②：启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
 	<bean
 		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
@@ -28,12 +30,14 @@
 			</list>
 		</property>
 	</bean>
-	
-	
-	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/> 
-	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
-    <property name="order" value="0"/>
-	</bean>          
+
+
+	<bean
+		class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+		<property name="order" value="0" />
+	</bean>
 
 	<!-- ③：对模型视图名称的解析，即在模型视图名称添加前后缀 -->
 	<bean
@@ -50,6 +54,7 @@
 		<property name="password" value="331381" />
 	</bean>
 
+	
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
@@ -101,5 +106,5 @@
 		<property name="userDao" ref="userDao"></property>
 	</bean>
 
-	
+
 </beans>
